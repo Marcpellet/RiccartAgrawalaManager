@@ -112,9 +112,24 @@ public class RicartAgrawala {
 	 * @param expectedAnswer the expectedAnswer to set
 	 */
 	public void setExpectedAnswer(int expectedAnswer) {
-		this.expectedAnswer = expectedAnswer;
+		this.expectedAnswer = expectedAnswer > 0 ? expectedAnswer : 0;
 	}
 	
+	
+	
+	/**
+	 * @return the siteNumber
+	 */
+	public int getSiteNumber() {
+		return siteNumber;
+	}
+	
+	public void setWaitinAnswer(int id, boolean value){
+		if(id < waitingAnswer.length && id > -1){
+			waitingAnswer[id] = value;
+		}
+	}
+
 	public void enterSC() throws Exception{
 		logicalClock++;
 		scHeure = logicalClock;
