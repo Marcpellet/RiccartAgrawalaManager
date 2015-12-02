@@ -21,22 +21,23 @@ public class ManagerLauncher {
 	 * @param args
 	 */
 	public static void main(String[] args) {
-		
+
 		Scanner reader = new Scanner(System.in);
-		
-		
-		System.out.println("Bienvenue dans le manager");
-		System.out.print("Entrez votre numéro de site: ");
-		int siteNumber = reader.nextInt();
+
+
+		System.out.println("Lancement de 3 managers");
 		try {
-			RicartAgrawala manager = new RicartAgrawala(siteNumber);
-			new Thread(new CommunicationWithClient(manager, (siteNumber*1000))).start();
+			for(int i = 1; i < 4; i++){
+				RicartAgrawala manager = new RicartAgrawala(i);
+				new Thread(new CommunicationWithClient(manager, (i*1000))).start();
+				new Thread(new CommunicationWithManagers(manager, 1000 + i)).start();
+			}
 		} catch (UnknownHostException e) {
 			// TODO Auto-generated catch block
 			e.printStackTrace();
 		}
-		
-		
+
+
 
 	}
 

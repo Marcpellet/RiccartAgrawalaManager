@@ -140,13 +140,17 @@ public class RicartAgrawala {
 		for(int i = 0; i< managers.size(); i++){
 			if(siteNumber-1 != i){
 				String text = "REQUEST:" + scHeure+ ":" + siteNumber;
+				System.out.println("Envoi : " + text + " à " + i);
 				sendMessage(text, managers.get(i).getFirst(), managers.get(i).getSecond()); 
 			}
 		}
 		
 		while(expectedAnswer > 0){
-			Thread.sleep(100);
+			Thread.sleep(1000);
+			System.out.println(siteNumber + " en attente de la SC");
 		}
+		
+		System.out.println(siteNumber + " accède à la SC");
 		
 	}
 	
@@ -163,6 +167,7 @@ public class RicartAgrawala {
 				sendMessage(message, managers.get(i).getFirst(), managers.get(i).getSecond());
 			}
 		}
+		System.out.println(siteNumber + " libère la sc");
 		
 	}
 	

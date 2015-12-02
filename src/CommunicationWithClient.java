@@ -50,7 +50,9 @@ public class CommunicationWithClient implements Runnable{
 					int value = Integer.valueOf(splitedMessage[1]);
 					manager.enterSC();
 					manager.setSharedValue(value);
+					Thread.sleep(10000);
 					manager.leaveSC();
+					buffer = ("UPDATED_VALUE:" + manager.getSharedValue()).getBytes();
 				}
 
 				// Obtenir l'adresse et le port du client
