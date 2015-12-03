@@ -1,5 +1,5 @@
 /**
- * Author  : Marc
+ * Author  : Marc Pellet et David Villa
  * Project : labo02 - Manager
  * File    : Pair.java
  * Date    : 2 déc. 2015
@@ -11,7 +11,7 @@ public class Pair<A, B> {
     private B second;
 
     public Pair(A first, B second) {
-    	super();
+    	super(); // euh, t'extend rien :O
     	this.first = first;
     	this.second = second;
     }

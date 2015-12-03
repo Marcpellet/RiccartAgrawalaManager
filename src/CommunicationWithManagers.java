@@ -1,14 +1,14 @@
-import java.net.DatagramPacket;
-import java.net.DatagramSocket;
-import java.net.InetAddress;
-import java.net.SocketException;
-
 /**
  * Author  : Marc
  * Project : labo02 - Manager
  * File    : CommunicationWithManagers.java
  * Date    : 2 déc. 2015
  */
+
+
+import java.net.DatagramPacket;
+import java.net.DatagramSocket;
+import java.net.InetAddress;
 
 
 public class CommunicationWithManagers implements Runnable{
@@ -28,6 +28,7 @@ public class CommunicationWithManagers implements Runnable{
 	@Override
 	public void run() {
 		try {
+			@SuppressWarnings("resource")
 			DatagramSocket socket = new DatagramSocket(port);
 			
 			while(true){
@@ -74,7 +75,6 @@ public class CommunicationWithManagers implements Runnable{
 			}
 			
 		} catch (Exception e) {
-			// TODO Auto-generated catch block
 			e.printStackTrace();
 		}
 		

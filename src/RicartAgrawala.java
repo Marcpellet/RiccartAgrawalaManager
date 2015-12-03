@@ -1,18 +1,16 @@
-import java.net.DatagramPacket;
-import java.net.DatagramSocket;
-import java.net.InetAddress;
-import java.net.UnknownHostException;
-import java.util.ArrayList;
-import java.util.List;
-
-
-
 /**
  * Author  : Marc
  * Project : labo02 - Manager
  * File    : Manager.java
  * Date    : 2 déc. 2015
  */
+
+import java.net.DatagramPacket;
+import java.net.DatagramSocket;
+import java.net.InetAddress;
+import java.net.UnknownHostException;
+import java.util.ArrayList;
+import java.util.List;
 
 
 public class RicartAgrawala {
