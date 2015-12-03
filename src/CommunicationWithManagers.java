@@ -1,5 +1,5 @@
 /**
- * Author  : Marc
+ * Author  : Marc Pellet et David Villa
  * Project : labo02 - Manager
  * File    : CommunicationWithManagers.java
  * Date    : 2 déc. 2015
@@ -12,8 +12,8 @@ import java.net.InetAddress;
 
 public class CommunicationWithManagers implements Runnable{
 
-	RicartAgrawala manager;
-	int port;
+	private RicartAgrawala manager;
+	private int port;
 	
 	/**
 	 * 
