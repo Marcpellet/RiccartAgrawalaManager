@@ -46,7 +46,7 @@ public class CommunicationWithManagers implements Runnable{
 				
 				//mise à jour de LogicalClock si nécessaire
 				int logicalClock = Integer.valueOf(splitedMessage[1]);
-				manager.setLogicalClock(Math.max(manager.getLogicalClock(), logicalClock));
+				manager.setLogicalClock(Math.max(manager.getLogicalClock(), logicalClock) + 1);
 				
 				switch (messageType) {
 				//en cas d'update on met juste à jour la valeur partagée
