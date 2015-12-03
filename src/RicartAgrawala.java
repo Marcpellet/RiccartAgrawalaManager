@@ -1,5 +1,6 @@
 /**
- * Author  : Marc Pellet & David Villa
+
+ * Author  : Marc Pellet et David Villa
  * Project : labo02 - Manager
  * File    : Manager.java
  * Date    : 2 déc. 2015
