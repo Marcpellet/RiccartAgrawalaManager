@@ -22,6 +22,7 @@ public class RicartAgrawala {
 	private int scHeure = 0;
 	private int expectedAnswer = 0;
 	private int siteNumber;
+	private Object sync = new Object();
 	
 	public RicartAgrawala(int siteNumber) throws UnknownHostException{
 		managers = new ArrayList<Pair<InetAddress,Integer>>();
@@ -122,6 +123,14 @@ public class RicartAgrawala {
 		return siteNumber;
 	}
 	
+	
+	/**
+	 * @return the sync
+	 */
+	public Object getSync() {
+		return sync;
+	}
+
 	public void setWaitinAnswer(int id, boolean value){
 		if(id < waitingAnswer.length && id > -1){
 			waitingAnswer[id] = value;
@@ -144,8 +153,11 @@ public class RicartAgrawala {
 		}
 		
 		while(expectedAnswer > 0){
-			Thread.sleep(1000);
-			System.out.println(siteNumber + " en attente de la SC");
+			synchronized (sync) {
+				sync.wait();
+				System.out.println(siteNumber + " en attente de la SC");
+			}
+			
 		}
 		
 		System.out.println(siteNumber + " accède à la SC");
@@ -153,6 +165,7 @@ public class RicartAgrawala {
 	}
 	
 	public void leaveSC() throws Exception{
+		System.out.println(siteNumber + " libère la sc");
 		scDemande = false;
 		for(int i = 0; i < managers.size(); i++){
 			if(siteNumber-1 != i){
@@ -165,7 +178,7 @@ public class RicartAgrawala {
 				sendMessage(message, managers.get(i).getFirst(), managers.get(i).getSecond());
 			}
 		}
-		System.out.println(siteNumber + " libère la sc");
+		
 		
 	}
 	

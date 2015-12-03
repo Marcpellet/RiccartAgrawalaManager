@@ -5,6 +5,7 @@
  * Date    : 2 déc. 2015
  */
 
+
 import java.net.DatagramPacket;
 import java.net.DatagramSocket;
 import java.net.InetAddress;
@@ -27,6 +28,7 @@ public class CommunicationWithManagers implements Runnable{
 	@Override
 	public void run() {
 		try {
+			@SuppressWarnings("resource")
 			DatagramSocket socket = new DatagramSocket(port);
 			
 			while(true){
@@ -61,6 +63,10 @@ public class CommunicationWithManagers implements Runnable{
 					if(splitedMessage.length == 4){
 						manager.setSharedValue(Integer.valueOf(splitedMessage[3]));
 					}
+					synchronized (manager.getSync()) {
+						manager.getSync().notify();
+					}
+					
 					break;
 				default:
 					System.out.println("Invalid message type");
