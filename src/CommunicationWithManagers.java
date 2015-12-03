@@ -1,8 +1,3 @@
-import java.net.DatagramPacket;
-import java.net.DatagramSocket;
-import java.net.InetAddress;
-import java.net.SocketException;
-
 /**
  * Author  : Marc
  * Project : labo02 - Manager
@@ -10,10 +5,11 @@ import java.net.SocketException;
  * Date    : 2 déc. 2015
  */
 
-/**
- * @author Marc
- *
- */
+import java.net.DatagramPacket;
+import java.net.DatagramSocket;
+import java.net.InetAddress;
+
+
 public class CommunicationWithManagers implements Runnable{
 
 	RicartAgrawala manager;
@@ -73,7 +69,6 @@ public class CommunicationWithManagers implements Runnable{
 			}
 			
 		} catch (Exception e) {
-			// TODO Auto-generated catch block
 			e.printStackTrace();
 		}
 		
