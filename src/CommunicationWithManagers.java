@@ -10,10 +10,7 @@ import java.net.SocketException;
  * Date    : 2 déc. 2015
  */
 
-/**
- * @author Marc
- *
- */
+
 public class CommunicationWithManagers implements Runnable{
 
 	RicartAgrawala manager;
@@ -65,6 +62,10 @@ public class CommunicationWithManagers implements Runnable{
 					if(splitedMessage.length == 4){
 						manager.setSharedValue(Integer.valueOf(splitedMessage[3]));
 					}
+					synchronized (manager.getSync()) {
+						manager.getSync().notify();
+					}
+					
 					break;
 				default:
 					System.out.println("Invalid message type");

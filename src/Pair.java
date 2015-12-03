@@ -5,10 +5,7 @@
  * Date    : 2 déc. 2015
  */
 
-/**
- * @author Marc
- *
- */
+
 public class Pair<A, B> {
     private A first;
     private B second;

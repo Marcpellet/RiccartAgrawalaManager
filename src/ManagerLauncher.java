@@ -11,10 +11,7 @@ import java.util.Scanner;
  * Date    : 2 déc. 2015
  */
 
-/**
- * @author Marc
- *
- */
+
 public class ManagerLauncher {
 
 	/**
