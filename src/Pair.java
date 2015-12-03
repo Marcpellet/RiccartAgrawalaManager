@@ -5,7 +5,12 @@
  * Date    : 2 déc. 2015
  */
 
-
+/**
+ * Classe générique permettant de créer une paire de 2 type à définir
+ *
+ * @param <A> type premier param
+ * @param <B> type deuxième param
+ */
 public class Pair<A, B> {
     private A first;
     private B second;
